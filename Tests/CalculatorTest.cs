@@ -1,13 +1,15 @@
 using NUnit.Framework;
+using Services;
 
 namespace Tests
 {
     public class Tests
     {
+        private ICalculator _calculator;
         [SetUp]
         public void Setup()
         {
-            // Initialize a shared instance of the calculator service here.
+            _calculator = new Calculator();
         }
 
         [Test]
@@ -73,31 +75,39 @@ namespace Tests
         [Test]
         public void MultiplyNumbersWithNoInput()
         {
-            Assert.Inconclusive("Test not fully implemented");
+            
         }
         
         [Test]
         public void MultiplyTwoPositiveNumbers()
         {
-            Assert.Inconclusive("Test not fully implemented");
+            var actual = _calculator.Multiply(5, 5);
+            const double expected = 25;
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
         public void MultiplyTwoNegativeNumbers()
         {
-            Assert.Inconclusive("Test not fully implemented");
+            var actual = _calculator.Multiply(-5, -5);
+            const double expected = 25;
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
         public void MultiplyThreePositiveNumbers()
         {
-            Assert.Inconclusive("Test not fully implemented");
+            var actual = _calculator.Multiply(5, 5, 2);
+            const double expected = 50;
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
         public void MultiplyThreeNegativeNumbers()
         {
-            Assert.Inconclusive("Test not fully implemented");
+            var actual = _calculator.Multiply(-5, -5, -2);
+            const double expected = -50;
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
